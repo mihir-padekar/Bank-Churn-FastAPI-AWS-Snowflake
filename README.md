@@ -108,9 +108,43 @@ pip install -r requirements.txt
 
 4. Run FastAPI: uvicorn api:app --host 0.0.0.0 --port 8000
 
+WORKFLOW -
+         +----------------+
+         |   Bank Churn   |
+         |    Dataset     |
+         |   (CSV/Raw)   |
+         +----------------+
+                 |
+                 v
+         +----------------+
+         | Snowflake DB   | <-- Stores dataset & logs predictions
+         +----------------+
+                 |
+         Fetch customer by ID
+                 |
+                 v
+         +----------------+
+         |  FastAPI API   | <-- Hosted on AWS EC2
+         |  (api.py)      |
+         +----------------+
+                 |
+                 v
+         +----------------+
+         | ANN Model      | <-- Wrapped in scikit-learn pipeline
+         | (TensorFlow)   |
+         +----------------+
+                 |
+                 v
+        +-------------------+
+        | Prediction Result | 
+        +-------------------+
+                 |
+        Log prediction back to Snowflake
+                 |
+                 v
+          +--------------+
+          |   User/Code  |
+          | Makes Request|
+          +--------------+
 
-
----
-
-## Folder Structure
 
