@@ -86,7 +86,7 @@ This project implements an **end-to-end machine learning pipeline** for predicti
 1. Clone the repository.
 2. Install dependencies:
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt ```
 
 ---
 
@@ -113,3 +113,4 @@ pip install -r requirements.txt
 ---
 
 ## Folder Structure
+
